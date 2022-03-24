@@ -8,6 +8,7 @@ export const getPopularCourses = async () => {
     }
     catch(err) {
         console.error('API ERROR ->>> call for "popular courses" was not a success', err)
+        return false
     }
 }
 
@@ -19,5 +20,6 @@ export const getCourse = async (courseKey) => {
     }
     catch(err) {
         console.error(`API ERROR ->>> call for ${courseKey}  was not a success`, err)
+        return false
     }
 }

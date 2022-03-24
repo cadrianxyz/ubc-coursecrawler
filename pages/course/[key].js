@@ -73,24 +73,34 @@ const CourseDetailPage = () => {
   const [courseData, setCourseData] = useState({})
   const [dataLoading, setDataLoading] = useState(false)
   const [dataLoaded, setDataLoaded] = useState(false)
+  const [dataError, setDataError] = useState(false)
   
   useEffect(() => {
     (async () => {
-      setDataLoading(true)
-      const courseKey = searchValidator(key)
-      
-      if (courseKey) {
-        if(courseText !== key) setCourseText(courseKey.replace('-', ' '))
+      try {
+        setDataLoading(true)
+        const courseKey = searchValidator(key)
         
-        let course = await getCourse(courseKey)
-        try { course = JSON.parse(course) }
-        catch {}
+        if (courseKey) {
+          if(courseText !== key) setCourseText(courseKey.replace('-', ' '))
+          
+          let course = await getCourse(courseKey)
+          if (!course) throw 'response not found'
+          try { course = JSON.parse(course) }
+          catch {}
 
-        setCourseData(course)
-        setDataLoaded(true)
+          setCourseData(course)
+          setDataLoaded(true)
+        }
+
+        setDataLoading(false)
       }
-
-      setDataLoading(false)
+      catch(err) {
+        console.error('ERROR ->>> could not get list of popular courses', err)
+        setDataLoading(false)
+        setCourseData({})
+        setDataError(true)
+      }
     })()
   }, [key]) // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -109,7 +119,7 @@ const CourseDetailPage = () => {
               {dataLoading && <div className='w-full h-full relative'>
                 <Spinner center/>
               </div>}
-              {dataLoaded && <Tree
+              {dataLoaded && !dataError && <Tree
                 data={courseData}
                 collapsible={true}
                 renderCustomNodeElement={TreeNodeElement}
@@ -121,6 +131,9 @@ const CourseDetailPage = () => {
                 transitionDuration={300}
                 centeringTransitionDuration={300}
               /> }
+              {dataError && <div className='w-full h-full relative'>
+                  <h1 className='text-center'>Data could not be retrieved</h1>
+                </div>}
             </div>
           </div>
         </div>

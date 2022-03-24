@@ -21,6 +21,7 @@ const MyApp = ({ Component, pageProps }) => {
     (async() => {
       try {
         const response = await getPopularCourses()
+        if (!response) throw 'response not found'
         const validatedResponse = response.map(([course, count]) => {
           const splitted = course.split('-')
           return {
@@ -36,6 +37,7 @@ const MyApp = ({ Component, pageProps }) => {
       }
       catch(err) {
         console.error('ERROR ->>> could not get list of popular courses', err)
+        setPopularCourses([])
         setPopularCoursesLoaded(false)
       }
     })()
