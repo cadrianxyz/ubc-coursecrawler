@@ -17,26 +17,28 @@ const MyApp = ({ Component, pageProps }) => {
   const [popularCourses, setPopularCourses] = useState([])
   const router = useRouter()
 
-  useEffect(async () => {
-    try {
-      const response = await getPopularCourses()
-      const validatedResponse = response.map(([course, count]) => {
-        const splitted = course.split('-')
-        return {
-          key: course,
-          dept: splitted[0],
-          courseNum: splitted[1],
-          text: splitted.join(' '),
-          href: `/course/${course}`
-        }
-      })
-      setPopularCourses(validatedResponse)
-      setPopularCoursesLoaded(true)
-    }
-    catch(err) {
-      console.error('ERROR ->>> could not get list of popular courses', err)
-      setPopularCoursesLoaded(false)
-    }
+  useEffect(() => {
+    (async() => {
+      try {
+        const response = await getPopularCourses()
+        const validatedResponse = response.map(([course, count]) => {
+          const splitted = course.split('-')
+          return {
+            key: course,
+            dept: splitted[0],
+            courseNum: splitted[1],
+            text: splitted.join(' '),
+            href: `/course/${course}`
+          }
+        })
+        setPopularCourses(validatedResponse)
+        setPopularCoursesLoaded(true)
+      }
+      catch(err) {
+        console.error('ERROR ->>> could not get list of popular courses', err)
+        setPopularCoursesLoaded(false)
+      }
+    })()
   }, [])
 
   return (

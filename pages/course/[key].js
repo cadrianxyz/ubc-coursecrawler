@@ -14,23 +14,25 @@ const CourseDetailPage = () => {
   const [dataLoading, setDataLoading] = useState(false)
   const [dataLoaded, setDataLoaded] = useState(false)
   
-  useEffect(async () => {
-    setDataLoading(true)
-    const courseKey = searchValidator(key)
-    
-    if (courseKey) {
-      if(courseText !== key) setCourseText(courseKey.replace('-', ' '))
+  useEffect(() => {
+    (async () => {
+      setDataLoading(true)
+      const courseKey = searchValidator(key)
       
-      let course = await getCourse(courseKey)
-      try { course = JSON.parse(course) }
-      catch {}
-      console.log({ course })
-      setCourseData(course)
-      setDataLoaded(true)
-    }
+      if (courseKey) {
+        if(courseText !== key) setCourseText(courseKey.replace('-', ' '))
+        
+        let course = await getCourse(courseKey)
+        try { course = JSON.parse(course) }
+        catch {}
+        console.log({ course })
+        setCourseData(course)
+        setDataLoaded(true)
+      }
 
-    setDataLoading(false)
-  }, [key])
+      setDataLoading(false)
+    })()
+  }, [key]) // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <>

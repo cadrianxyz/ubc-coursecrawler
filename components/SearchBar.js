@@ -41,7 +41,7 @@ const SearchBar = ({ size = 'small' }) => {
                     </div>
                     </div>
                     <div className="p-3 bg-white rounded-b-lg break-words text-gray-700">
-                        Enter course code correctly (eg: 'CPSC 427', 'CPSC427')
+                        Enter course code correctly (eg: &apos;CPSC 427&apos;, &apos;CPSC427&apos;)
                     </div>
                 </div>
             </div>}
