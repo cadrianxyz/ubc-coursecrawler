@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import { DefaultSeo } from 'next-seo'
 
-import Header from '../components/header'
+import Header from '../components/header/index'
 import '../styles/globals.css'
 
 // framer example: https://github.com/james-wallis/wallis.dev/blob/master/pages/_app.tsx
