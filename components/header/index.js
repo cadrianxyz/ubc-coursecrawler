@@ -8,16 +8,18 @@ import SearchBar from './SearchBar'
 
 const links = [
   {
-    name: 'Home',
+    key: 'home',
+    text: 'Home',
     href: '/'
   },
   {
-    name: 'About',
+    key: 'about',
+    text: 'About',
     href: '/about'
   },
 ]
 
-const Header = ({ showSearch = true, popularCourses = [] }) => (
+const Header = ({ showSearch = true, popularCourses = [], dataLoaded = false }) => (
   <Popover className="relative bg-white">
     {/* DESKTOP VIEW */}
     <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -27,7 +29,7 @@ const Header = ({ showSearch = true, popularCourses = [] }) => (
           <a href="#">
             <span className="sr-only">Coursecrawler</span>
             {/* TODO: Logo */}
-            <img className="h-8 w-auto sm:h-10" src='/static/logo-temp.png' alt="CourseScraper" />
+            <img className="h-8 w-auto sm:h-10" src='/logo-temp.png' alt="CourseScraper" />
           </a>
         </div>
 
@@ -39,8 +41,8 @@ const Header = ({ showSearch = true, popularCourses = [] }) => (
         </div>
 
         <Popover.Group as="nav" className="hidden md:flex space-x-10">
-          {links.map((link) => <DesktopLink text={link.name} href={link.href} />)}
-          <DesktopPopover text='Popular' dropdownItems={[]}/>
+          {links.map((link) => <DesktopLink key={link.key} text={link.text} href={link.href} />)}
+          {dataLoaded && <DesktopPopover text='Popular' dropdownItems={popularCourses}/>}
         </Popover.Group>
 
 
@@ -75,7 +77,7 @@ const Header = ({ showSearch = true, popularCourses = [] }) => (
 
           <div className="pt-5 pb-6 px-5">
             <div className="flex items-center justify-between">
-              <div><img className="h-8 w-auto" src='/static/logo-temp.png' alt="CourseScraper" /></div>
+              <div><img className="h-8 w-auto" src='/logo-temp.png' alt="CourseScraper" /></div>
               <div className="-mr-2">
                 <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
                   <span className="sr-only">Close menu</span>
@@ -86,14 +88,14 @@ const Header = ({ showSearch = true, popularCourses = [] }) => (
 
             <div className="mt-6">
               <nav className="grid gap-y-8">
-                {popularCourses.map((item) => <MobileEntry key={text} text={item.name} href={item.href} />)}
+                {dataLoaded && popularCourses.map((item) => <MobileEntry key={item.key} text={item.text} href={item.href} />)}
               </nav>
             </div>
           </div>
 
           <div className="py-6 px-5 space-y-6">
             <div className="grid grid-cols-2 gap-y-4 gap-x-8">
-              {links.map((link) => <MobileLink key={link.name} text={link.name} href={link.href} />)}
+              {links.map((link) => <MobileLink key={link.key} text={link.text} href={link.href} />)}
             </div>
 
             <SearchBar />
