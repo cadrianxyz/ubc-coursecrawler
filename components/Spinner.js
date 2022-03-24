@@ -1,7 +1,7 @@
-const Spinner = () => {
+const Spinner = ({ center }) => {
     return (
         <>
-            <div className="spin" />
+            <div className={`spin ${center ? 'spin-center' : ''}`} />
             <style jsx>{`
                 @keyframes spinner {
                     0% {
@@ -15,7 +15,7 @@ const Spinner = () => {
                     animation: 1.5s linear infinite spinner;
                     animation-play-state: inherit;
                     border: solid 5px #cfd0d1;
-                    border-bottom-color: #1c87c9;
+                    border-bottom-color: rgb(79 70 229);
                     border-radius: 50%;
                     content: "";
                     height: 40px;
@@ -25,8 +25,12 @@ const Spinner = () => {
                     left: 10%;
                     transform: translate3d(-50%, -50%, 0);
                     will-change: transform;
-                }`}
-            </style>
+                }
+                .spin-center::before {
+                    left: 50%;
+                    top: 50%;
+                }
+            `}</style>
         </>
     )
 }
