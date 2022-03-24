@@ -2,6 +2,7 @@ const RE_SPECIAL_CHARS = /[^a-zA-Z0-9 ]/g
 const RE_NUMBERS_FOLLOW_LETTERS = /(?<=\D)(?=\d)/
 
 const searchValidator = (input) => {
+    if (!input) return false
     // do validation
     let validated = false
     let courseKey = input.trim() // remove trailing whitespace

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useRouter } from "next/router"
 import Head from 'next/head'
 import { DefaultSeo } from 'next-seo'
 
@@ -14,6 +15,7 @@ const MyApp = ({ Component, pageProps }) => {
   // get popular courses
   const [popularCoursesLoaded, setPopularCoursesLoaded] = useState(false)
   const [popularCourses, setPopularCourses] = useState([])
+  const router = useRouter()
 
   useEffect(async () => {
     try {
@@ -55,7 +57,11 @@ const MyApp = ({ Component, pageProps }) => {
           }}
           // canonical={url}
       />
-      <Header popularCourses={popularCourses} dataLoaded={popularCoursesLoaded} />
+      <Header
+        showSearch={router.pathname != '/'}
+        popularCourses={popularCourses}
+        dataLoaded={popularCoursesLoaded}
+      />
       <Component {...pageProps} />
     </div>
   )
