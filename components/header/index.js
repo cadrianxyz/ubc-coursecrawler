@@ -4,7 +4,7 @@ import { MenuIcon, XIcon } from '@heroicons/react/outline'
 
 import { DesktopLink, DesktopPopover } from "./DesktopComponents"
 import { MobileEntry, MobileLink } from "./MobileComponents"
-import SearchBar from './SearchBar'
+import SearchBar from '../SearchBar'
 
 const links = [
   {

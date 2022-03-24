@@ -56,9 +56,7 @@ const MyApp = ({ Component, pageProps }) => {
           // canonical={url}
       />
       <Header popularCourses={popularCourses} dataLoaded={popularCoursesLoaded} />
-      <div className='MainContent flex flex-1 justify-center'>
-          <Component {...pageProps} />
-      </div>
+      <Component {...pageProps} />
     </div>
   )
 }
