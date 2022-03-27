@@ -127,9 +127,10 @@ const CourseDetailPage = () => {
                 separation={{ nonSiblings: 1, siblings: 2 }}
                 depthFactor={200}
                 initialDepth={1}
-                enableLegacyTransition={true}
-                transitionDuration={300}
-                centeringTransitionDuration={300}
+                // shouldCollapseNeighborNodes={true}
+                // enableLegacyTransitions={true}
+                // transitionDuration={0}
+                // centeringTransitionDuration={800}
               /> }
               {dataError && <div className='w-full h-full relative'>
                   <h1 className='text-center'>Data could not be retrieved</h1>
