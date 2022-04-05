@@ -1,8 +1,8 @@
 const API_URL = process.env.PUBLIC_API_URL
 
-export const getPopularCourses = async () => {
+export const getPopularCourses = async (institution) => {
     try {
-        const res = await fetch(API_URL + '/api/courses/popular')
+        const res = await fetch(`${API_URL}/api/courses/${institution}/popular`)
         const courses = await res.json()
         return courses.data
     }
@@ -12,14 +12,14 @@ export const getPopularCourses = async () => {
     }
 }
 
-export const getCourse = async (courseKey) => {
+export const getCourse = async (institution, courseKey) => {
     try {
-        const res = await fetch(API_URL + '/api/course/' + courseKey)
+        const res = await fetch(`${API_URL}/api/course/${institution}/${courseKey}`)
         const course = await res.json()
         return course.data
     }
     catch(err) {
-        console.error(`API ERROR ->>> call for ${courseKey}  was not a success`, err)
+        console.error(`API ERROR ->>> call for ${institution}/${courseKey} was not a success`, err)
         return false
     }
 }

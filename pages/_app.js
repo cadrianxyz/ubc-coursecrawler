@@ -7,6 +7,7 @@ import Header from '../components/header/index'
 import '../styles/globals.css'
 
 import { getPopularCourses } from '../data/api'
+import INSTITUTIONS from "../constants/institutions"
 
 // framer example: https://github.com/james-wallis/wallis.dev/blob/master/pages/_app.tsx
 
@@ -20,7 +21,7 @@ const MyApp = ({ Component, pageProps }) => {
   useEffect(() => {
     (async() => {
       try {
-        const response = await getPopularCourses()
+        const response = await getPopularCourses(INSTITUTIONS['UBC'])
         if (!response) throw 'response not found'
         const validatedResponse = response.map(([course, count]) => {
           const splitted = course.split('-')

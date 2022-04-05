@@ -7,6 +7,7 @@ import generateUrl from '../../utils/generateUrl'
 import Spinner from '../../components/Spinner'
 import searchValidator from '../../utils/searchValidator'
 import { getCourse } from '../../data/api'
+import INSTITUTIONS from "../../constants/institutions"
 
 const GROUPS_COLORS = [
   '#4f46e5',
@@ -84,7 +85,7 @@ const CourseDetailPage = () => {
         if (courseKey) {
           if(courseText !== key) setCourseText(courseKey.replace('-', ' '))
           
-          let course = await getCourse(courseKey)
+          let course = await getCourse(INSTITUTIONS['UBC'], courseKey)
           if (!course) throw 'response not found'
           try { course = JSON.parse(course) }
           catch {}
