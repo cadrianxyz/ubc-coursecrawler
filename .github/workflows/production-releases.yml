@@ -1,0 +1,27 @@
+name: Production Release
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    # checkout code
+    - uses: actions/checkout@v3
+    # install node
+    - uses: actions/setup-node@v3
+    - run: npm install
+    - run: npm run build --if-present
+    # cli message
+    - run: echo "Releasing ${GITHUB_REF:10} to netlify production"
+    # deploy to netlify
+    - name: Deploy to netlify
+      uses: netlify/actions/cli@master
+      env:
+        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+      with:
+        args: deploy --dir=.next --prod
+        secrets: '["NETLIFY_AUTH_TOKEN", "NETLIFY_SITE_ID"]'

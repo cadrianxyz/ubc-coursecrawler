@@ -3,7 +3,7 @@
 # ubc-coursecrawler
 Web application for UBC Coursecrawler. The backend counterpart is [here](https://github.com/ad2969/ubc-coursecrawler-api)
 
-> **Status** - v0.1 Prototype. See the [CHANGELOG](CHANGELOG.md).
+> **Status** - Prototype. See the [releases](https://github.com/ad2969/ubc-coursecrawler/releases) for a list of releases and their changelog.
 
 > **Technology Stack** - NextJs, Netlify
 
@@ -57,9 +57,14 @@ Dotenv files (`.env.*`) are not included in the repository. They contain sensiti
 
 ### Deployment
 
-The application's `deploy` branch is currently built on Netlify for live viewing/testing. Changes should be pushed to `master` first and tested before being merged into the `deploy` branch.
+The application is currently built on Netlify for live viewing/testing. Deploys to netlify can be triggered by creating Github Releases on the repository. This will run a production workflow that has been pre-configured. Read up on [creating releases on Github](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository#creating-a-release)
 
-Document new releases in the [CHANGELOG](CHANGELOG.md). Release versioning will follow concepts specified by Tom Preston-Werner's [semver](https://semver.org/)
+
+Document the changes in each release with as much detail as possible. Name releases using the following format:
+```
+v1.0.0
+```
+Release versioning will follow concepts specified by Tom Preston-Werner's [semver](https://semver.org/)
 
 
 ## Scripts
@@ -83,7 +88,7 @@ Everyone is encouraged to make useful contributions to the project. Instructions
 3. Make the appropriate edits and additions in a new branch (use a unique name in *kebab-case*, see [naming conventions](https://namingconvention.org/git/branch-naming.html))
 4. Submit a pull request with a detailed description of the changes that were made
 --> Pull requests will be accepted after being reviewed and after appropriate testing
-5. After merging to `master`, [deploy](#deployment) the application as a new version.
+5. After merging to `main`, [deploy](#deployment) the application as a new version.
 
 ### Repository Moderators
 
