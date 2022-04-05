@@ -1,7 +1,7 @@
-import { Fragment } from 'react'
-import { Popover, Transition } from '@headlessui/react'
-import { ChevronDownIcon } from '@heroicons/react/solid'
-import classNames from "../../utils/classNames"
+import { Fragment } from "react";
+import { Popover, Transition } from "@headlessui/react";
+import { ChevronDownIcon } from "@heroicons/react/solid";
+import classNames from "../../utils/classNames";
 
 export const DesktopPopover = ({ text, dropdownItems = [], callsToAction = false }) => (
   <Popover className="relative">
@@ -9,15 +9,15 @@ export const DesktopPopover = ({ text, dropdownItems = [], callsToAction = false
       <>
         <Popover.Button
           className={classNames(
-            open ? 'text-gray-900' : 'text-gray-500',
-            'group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
+            open ? "text-gray-900" : "text-gray-500",
+            "group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
           )}
         >
           <span>{text}</span>
           <ChevronDownIcon
             className={classNames(
-              open ? 'text-gray-600' : 'text-gray-400',
-              'ml-2 h-5 w-5 group-hover:text-gray-500'
+              open ? "text-gray-600" : "text-gray-400",
+              "ml-2 h-5 w-5 group-hover:text-gray-500"
             )}
             aria-hidden="true"
           />
@@ -68,10 +68,10 @@ export const DesktopPopover = ({ text, dropdownItems = [], callsToAction = false
       </>
     )}
   </Popover>
-)
+);
 
-export const DesktopLink = ({ text = '', href = '#' }) => (
+export const DesktopLink = ({ text = "", href = "#" }) => (
   <a href={href} className="text-base font-medium text-gray-500 hover:text-gray-900">
     {text}
   </a>
-)
+);

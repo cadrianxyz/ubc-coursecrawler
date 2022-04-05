@@ -1,8 +1,8 @@
 const Spinner = ({ center }) => {
-    return (
-        <>
-            <div className={`spin ${center ? 'spin-center' : ''}`} />
-            <style jsx>{`
+  return (
+    <>
+      <div className={`spin ${center ? "spin-center" : ""}`} />
+      <style jsx>{`
                 @keyframes spinner {
                     0% {
                     transform: translate3d(-50%, -50%, 0) rotate(0deg);
@@ -31,8 +31,8 @@ const Spinner = ({ center }) => {
                     top: 50%;
                 }
             `}</style>
-        </>
-    )
-}
+    </>
+  );
+};
 
-export default Spinner
+export default Spinner;

@@ -1,23 +1,23 @@
-import { Fragment } from 'react'
-import { Popover, Transition } from '@headlessui/react'
-import { MenuIcon, XIcon } from '@heroicons/react/outline'
+import { Fragment } from "react";
+import { Popover, Transition } from "@headlessui/react";
+import { MenuIcon, XIcon } from "@heroicons/react/outline";
 
-import { DesktopLink, DesktopPopover } from "./DesktopComponents"
-import { MobileEntry, MobileLink } from "./MobileComponents"
-import SearchBar from '../SearchBar'
+import { DesktopLink, DesktopPopover } from "./DesktopComponents";
+import { MobileEntry, MobileLink } from "./MobileComponents";
+import SearchBar from "../SearchBar";
 
 const links = [
   {
-    key: 'home',
-    text: 'Home',
-    href: '/'
+    key: "home",
+    text: "Home",
+    href: "/"
   },
   {
-    key: 'about',
-    text: 'About',
-    href: '/about'
+    key: "about",
+    text: "About",
+    href: "/about"
   },
-]
+];
 
 const Header = ({ showSearch = true, popularCourses = [], dataLoaded = false }) => (
   <Popover className="relative bg-white">
@@ -29,7 +29,7 @@ const Header = ({ showSearch = true, popularCourses = [], dataLoaded = false }) 
           <a href="#">
             <span className="sr-only">Coursecrawler</span>
             {/* TODO: Logo */}
-            <img className="h-8 w-auto sm:h-10" src='/logo-temp.png' alt="CourseScraper" />
+            <img className="h-8 w-auto sm:h-10" src='/logo-temp.png' alt="CourseScraper" /> {/* eslint-disable-line @next/next/no-img-element */}
           </a>
         </div>
 
@@ -77,7 +77,7 @@ const Header = ({ showSearch = true, popularCourses = [], dataLoaded = false }) 
 
           <div className="pt-5 pb-6 px-5">
             <div className="flex items-center justify-between">
-              <div><img className="h-8 w-auto" src='/logo-temp.png' alt="CourseScraper" /></div>
+              <div><img className="h-8 w-auto" src='/logo-temp.png' alt="CourseScraper" /></div> {/* eslint-disable-line @next/next/no-img-element */}
               <div className="-mr-2">
                 <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
                   <span className="sr-only">Close menu</span>
@@ -120,6 +120,6 @@ const Header = ({ showSearch = true, popularCourses = [], dataLoaded = false }) 
       </Popover.Panel>
     </Transition>
   </Popover>
-)
+);
 
-export default Header
+export default Header;
