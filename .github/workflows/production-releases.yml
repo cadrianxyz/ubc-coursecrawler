@@ -26,23 +26,9 @@ jobs:
     # install node and dependencies
     - uses: actions/setup-node@v3
     - run: npm install
-    # build the project
-    - id: netilfy-build
-      run: netlify build
-      env:
-        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-    # deploy to netlify
+    # build and deploy to netlify
     - name: Deploy to netlify
-      run: |
-        COMMAND="netlify deploy --prod"
-        OUTPUT=$(sh -c "$COMMAND")
-
-        NETLIFY_LOGS_URL=$(echo "$OUTPUT" | grep -Eo '(http|https)://app.netlify.com/[a-zA-Z0-9./?=_-]*') # Unique key: app.netlify.com
-        NETLIFY_LIVE_URL=$(echo "$OUTPUT" | grep -Eo '(http|https)://[a-zA-Z0-9./?=_-]*' | grep -Ev "netlify.com|(--)") # Unique key: doesn't contain -- and app.netlify.com
-
-        echo "::set-output name=netlify_logs_url::$NETLIFY_LOGS_URL"
-        echo "::set-output name=netlify_live_url::$NETLIFY_LIVE_URL"
+      run: netlify deploy --build --prod --message "Deploy triggered by Github Release"
       env:
         NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
         NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}

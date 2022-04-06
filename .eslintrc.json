@@ -20,6 +20,7 @@
     ],
     "quotes": [1, "double"],
     "semi": [1, "always"],
-    "prefer-const": [1, { "destructuring": "any" }]
+    "prefer-const": [1, { "destructuring": "any" }],
+    "@next/next/no-img-element": 0
   }
 }
