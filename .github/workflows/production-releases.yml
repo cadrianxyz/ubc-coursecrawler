@@ -28,7 +28,7 @@ jobs:
     - run: npm install
     # build and deploy to netlify
     - name: Deploy to netlify
-      run: netlify deploy --build --prod --message "Deploy triggered by Github Release"
+      run: netlify deploy --build --prod --message "Deploy triggered by Github Release - version ${GITHUB_REF:10}"
       env:
         NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
         NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
