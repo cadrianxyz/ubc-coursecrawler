@@ -2,7 +2,7 @@
 name: Feature Request
 about: New feature to be added
 title: "[FR]"
-labels: new feature
+labels: feature
 assignees: ''
 
 ---
@@ -19,3 +19,4 @@ assignees: ''
 - [ ]
 
 #### Additional Notes
+Add any other context.

@@ -16,7 +16,7 @@ Delete options that are not relevant.
 
 # How Has This Been Tested?
 
-Describe the tests that you ran to verify your changes. If design change, please ensure design change/addition has been approved by a UX Lead or 
+Describe the tests that you ran to verify your changes. If design change, please ensure design change/addition has been approved by a UX Lead or a moderator
 
 - [ ] Visual UX Approval
 - [ ] Unit-Testing
