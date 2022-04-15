@@ -3,9 +3,13 @@
 # ubc-coursecrawler
 Web application for UBC Coursecrawler. The backend counterpart is [here](https://github.com/ad2969/ubc-coursecrawler-api)
 
+Feel free to **report any bugs or improvements** in the [issues page](https://github.com/ad2969/ubc-coursecrawler/issues). Contributions are also highly encouraged! Read up on [how to contribute](#contributing).
+
 > **Status** - Prototype. See the [releases](https://github.com/ad2969/ubc-coursecrawler/releases) for a list of releases and their changelog.
 
-> **Technology Stack** - NextJs, Netlify
+**Technology Stack**:
+- [NextJs](https://nextjs.org/), React-based framework for quickly setting up web applications
+- [Netlify](https://www.netlify.com/), for hosting the application
 
 Libraries used in this app:
 - Graphing via `react-d3-tree`
@@ -81,15 +85,5 @@ Release versioning will follow concepts specified by Tom Preston-Werner's [semve
 
 
 ## Contributing
-Everyone is encouraged to make useful contributions to the project. Instructions to start contributing are as follows:
 
-1. Clone and setup the repo into your local environment (instructions [here](#getting-started))
-2. Draft out the changes to be made and discuss with one of the moderators (ideally, [start an issue](https://github.com/ad2969/ubc-coursecrawler/issues) or pick an existing one)
-3. Make the appropriate edits and additions in a new branch (use a unique name in *kebab-case*, see [naming conventions](https://namingconvention.org/git/branch-naming.html))
-4. Submit a pull request with a detailed description of the changes that were made
---> Pull requests will be accepted after being reviewed and after appropriate testing
-5. After merging to `main`, [deploy](#deployment) the application as a new version.
-
-### Repository Moderators
-
-* @ad2969
+See [CONTRIBUTING][CONTRIBUTING.md]
